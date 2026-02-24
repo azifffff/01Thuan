@@ -2473,7 +2473,7 @@ function populateTianmingDeleteLists(){
 const quanshuModuleMap = {
   office: { title: '🏛 Quan chức', srcId: 'quanshu-office', editTab: 'qs-edit-office' },
   paixi:  { title: '🧩 Quan hệ phe phái', srcId: 'quanshu-paixi', editTab: 'qs-edit-paixi' },
-  chouma: { title: '🪙 Kho chiêu bài', srcId: 'quanshu-chouma', editTab: 'qs-edit-chouma' },
+  chouma: { title: '🗒️ Kho chiêu bài', srcId: 'quanshu-chouma', editTab: 'qs-edit-chouma' },
   min:    { title: '📜 Chính sách với dân', srcId: 'quanshu-min', editTab: 'qs-edit-min' },
   jun:    { title: '⚔ Chính sách với quân', srcId: 'quanshu-jun', editTab: 'qs-edit-jun' },
   mimou:  { title: '🕯 Mật mưu', srcId: 'quanshu-mimou', editTab: 'qs-edit-mimou' },
@@ -3802,7 +3802,7 @@ if (minxinVals.length > 0){
   const avg = Math.round(minxinVals.reduce((a,b)=>a+b,0) / minxinVals.length);
   document.getElementById('jiyao-hearts').textContent = `${avg} (${fmt(getMinxinDesc(avg))})`;
 } else {
-  document.getElementById('jiyao-hearts').textContent = `-- (Tạm không có lãnh địa)`;
+  document.getElementById('jiyao-hearts').textContent = `Tạm không có lãnh địa`;
 }
 
 // Danh hiệu (Vẫn lấy từ Kỷ Yếu.Danh Hiệu)
@@ -3837,42 +3837,42 @@ const n = population;
 document.getElementById('reward-rice').textContent =
   (n >= 1 ? (n * 2) : 0) + ' Cân';
 
-// Thịt Tươi: n>=2 ? round(n/2) : 0
+// Thịt Tươi: n>=5 ? round(n/2) : 0
 document.getElementById('reward-meat').textContent =
-  (n >= 2 ? Math.round(n / 2) : 0) + ' Cân';
+  (n >= 5 ? Math.round(n / 2) : 0) + ' Cân';
 
-// Muối Tinh Thượng Hạng: n>=5 ? round(n/5) : 0
+// Muối Tinh Thượng Hạng: n>=100 ? round(n/5) : 0
 document.getElementById('reward-salt').textContent =
-  (n >= 5 ? Math.round(n / 5) : 0) + ' Lạng';
+  (n >= 100 ? Math.round(n / 5) : 0) + ' Lạng';
 
-// Dầu Ăn Nguyên Chất: n>=10 ? round(n/10) : 0
+// Dầu Ăn Nguyên Chất: n>=100 ? round(n/10) : 0
 document.getElementById('reward-oil').textContent =
-  (n >= 10 ? Math.round(n / 10) : 0) + ' Lạng';
+  (n >= 100 ? Math.round(n / 10) : 0) + ' Lạng';
 
-// Vải Thô Bền: n>=50 ? round(n/50)*10 : 0
+// Vải Thô Bền: n>=150 ? round(n/50)*10 : 0
 document.getElementById('reward-cloth').textContent =
-  (n >= 50 ? (Math.round(n / 50) * 10) : 0) + ' Thước';
+  (n >= 150 ? (Math.round(n / 50) * 10) : 0) + ' Thước';
 
-// Lụa Thượng Hạng: n>=100 ? round(n/100)*5 : 0
+// Lụa Thượng Hạng: n>=1000 ? round(n/100)*5 : 0
 document.getElementById('reward-silk').textContent =
-  (n >= 100 ? (Math.round(n / 100) * 5) : 0) + ' Thước';
+  (n >= 1000 ? (Math.round(n / 1000) * 5) : 0) + ' Thước';
 
-// Thức Ăn Chăn Nuôi Thượng Hạng: n>=200 ? round(n/200) : 0
+// Thức Ăn Chăn Nuôi Thượng Hạng: n>=500 ? round(n/200) : 0
 document.getElementById('reward-fodder').textContent =
-  (n >= 200 ? Math.round(n / 200) : 0) + ' Phần';
+  (n >= 500 ? Math.round(n / 200) : 0) + ' Phần';
 
-// Than Củi Không Khói: n>=500 ? round(n/500)*50 : 0
+// Than Củi Không Khói: n>=1000 ? round(n/500)*50 : 0
 document.getElementById('reward-charcoal').textContent =
-  (n >= 500 ? (Math.round(n / 500) * 50) : 0) + ' Cân';
+  (n >= 1000 ? (Math.round(n / 500) * 50) : 0) + ' Cân';
 
       const milestones = [
         { threshold: 50, reward: 'Hạt giống khoai lang năng suất cao × 100 cân', type: 'Giống loài nông nghiệp', effect: 'Chịu hạn chịu đất nghèo, sản lượng cực cao, thần khí giải quyết nạn đói', unlocked: population >= 50 },
         { threshold: 100, reward: '《Tề Dân Yếu Thuật · Bản Tăng Bổ》', type: 'Sách kỹ thuật', effect: 'Bao gồm kỹ thuật nông canh, ghép cây, chọn giống và thủy lợi tưới tiêu tiên tiến nhất thời cổ đại', unlocked: population >= 100 },
-        { threshold: 300, reward: '《Thiên Công Khai Vật · Thiên Khám Quặng》', type: 'Sách kỹ thuật', effect: 'Ghi chép chi tiết kỹ thuật khám dư tìm kiếm mỏ quặng thông qua thảm thực vật địa biểu, thủy văn, thổ nhưỡng', unlocked: population >= 300 },
+        { threshold: 500, reward: '《Thiên Công Khai Vật · Thiên Khám Quặng》', type: 'Sách kỹ thuật', effect: 'Ghi chép chi tiết kỹ thuật khám dư tìm kiếm mỏ quặng thông qua thảm thực vật địa biểu, thủy văn, thổ nhưỡng', unlocked: population >= 500 },
         { threshold: 1000, reward: '《Đại Toàn Công Nghệ Luyện Kim Truyền Thống》', type: 'Sách kỹ thuật', effect: 'Ghi chép phương pháp tưới thép, xào thép, thép trăm luyện... kỹ thuật luyện sắt đỉnh cao thời cổ đại', unlocked: population >= 1000 },
-        { threshold: 3000, reward: '《Võ Bị Chí · Thiên Giáp Trụ Binh Khí》', type: 'Sách kỹ thuật', effect: 'Bao gồm bản đồ rèn đúc trang bị đỉnh cao binh khí lạnh như Bộ Nhân Giáp, Minh Quang Khải, Thần Tý Nỗ', unlocked: population >= 3000 },
-        { threshold: 5000, reward: '《Doanh Tạo Pháp Thức · Thiên Thành Phòng》', type: 'Sách kỹ thuật', effect: 'Kỹ thuật xây dựng tiêu chuẩn hóa tường thành, ung thành, tháp canh thời cổ đại', unlocked: population >= 5000 },
-        { threshold: 10000, reward: '《Bản Thảo Cương Mục · Thiên Phòng Dịch Vệ Sinh》', type: 'Sách kỹ thuật', effect: 'Hệ thống phòng dịch Trung y cổ đại, bao gồm phương pháp cách ly, thuật cấy đậu mùa...', unlocked: population >= 10000 }
+        { threshold: 5000, reward: '《Võ Bị Chí · Thiên Giáp Trụ Binh Khí》', type: 'Sách kỹ thuật', effect: 'Bao gồm bản đồ rèn đúc trang bị đỉnh cao binh khí lạnh như Bộ Nhân Giáp, Minh Quang Khải, Thần Tý Nỗ', unlocked: population >= 5000 },
+        { threshold: 10000, reward: '《Doanh Tạo Pháp Thức · Thiên Thành Phòng》', type: 'Sách kỹ thuật', effect: 'Kỹ thuật xây dựng tiêu chuẩn hóa tường thành, ung thành, tháp canh thời cổ đại', unlocked: population >= 10000 },
+        { threshold: 30000, reward: '《Bản Thảo Cương Mục · Thiên Phòng Dịch Vệ Sinh》', type: 'Sách kỹ thuật', effect: 'Hệ thống phòng dịch Trung y cổ đại, bao gồm phương pháp cách ly, thuật cấy đậu mùa...', unlocked: population >= 30000 }
       ];
 
       let milestoneHtml = milestones.map(m => `
@@ -5074,12 +5074,12 @@ window.generateDiscardBookPatch = generateDiscardBookPatch;
 
   <div class="asset-grid">
     <div class="asset-card">
-      <div class="asset-icon">🪙</div>
+      <div class="asset-icon">🟡</div>
       <div class="asset-value" id="asset-silver">0</div>
       <div class="asset-label">Ngân lượng</div>
     </div>
     <div class="asset-card">
-      <div class="asset-icon">🪙</div>
+      <div class="asset-icon">💰</div>
       <div class="asset-value" id="asset-copper">0</div>
       <div class="asset-label">Quan tiền</div>
     </div>
@@ -5325,7 +5325,7 @@ window.generateDiscardBookPatch = generateDiscardBookPatch;
     </div>
 
     <div class="zhengfu-module-card" onclick="openQuanshuModule('chouma')">
-      <div class="zhengfu-module-title">🪙 Kho chiêu bài</div>
+      <div class="zhengfu-module-title">🗒️ Kho chiêu bài</div>
       <div class="zhengfu-module-sub">Loại / Nhân vật liên quan / Trạng thái</div>
       <div class="zhengfu-module-badge" id="qs-b-chouma">0 hạng mục</div>
     </div>
@@ -5458,7 +5458,7 @@ window.generateDiscardBookPatch = generateDiscardBookPatch;
     </div>
 
     <div class="zhengfu-module-card" onclick="openTianmingModule('xiangrui')">
-      <div class="zhengfu-module-title">🪶 Điềm lành và điềm dữ</div>
+      <div class="zhengfu-module-title">✨ Điềm lành và điềm dữ</div>
       <div class="zhengfu-module-sub">Sự kiện / Tính chất / Phạm vi lan truyền / Có phải do người làm</div>
       <div class="zhengfu-module-badge" id="tm-b-xiangrui">0 hạng mục</div>
     </div>
